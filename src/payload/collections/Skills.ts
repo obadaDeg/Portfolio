@@ -1,6 +1,6 @@
-import { CollectionConfig } from 'payload/types'
+import type { CollectionConfig } from 'payload'
 
-const Skills: CollectionConfig = {
+export const Skills: CollectionConfig = {
   slug: 'skills',
   admin: {
     useAsTitle: 'name',
@@ -141,4 +141,3 @@ const Skills: CollectionConfig = {
   timestamps: true,
 }
 
-export default Skills

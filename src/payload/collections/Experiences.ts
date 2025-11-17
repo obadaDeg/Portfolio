@@ -1,6 +1,6 @@
-import { CollectionConfig } from 'payload/types'
+import type { CollectionConfig } from 'payload'
 
-const Experiences: CollectionConfig = {
+export const Experiences: CollectionConfig = {
   slug: 'experiences',
   admin: {
     useAsTitle: 'role',
@@ -102,4 +102,3 @@ const Experiences: CollectionConfig = {
   timestamps: true,
 }
 
-export default Experiences

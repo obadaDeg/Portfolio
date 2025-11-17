@@ -1,6 +1,6 @@
-import { CollectionConfig } from 'payload/types'
+import type { CollectionConfig } from 'payload'
 
-const Certifications: CollectionConfig = {
+export const Certifications: CollectionConfig = {
   slug: 'certifications',
   admin: {
     useAsTitle: 'name',
@@ -86,4 +86,3 @@ const Certifications: CollectionConfig = {
   timestamps: true,
 }
 
-export default Certifications

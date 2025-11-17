@@ -1,6 +1,6 @@
-import { CollectionConfig } from 'payload/types'
+import type { CollectionConfig } from 'payload'
 
-const Personas: CollectionConfig = {
+export const Personas: CollectionConfig = {
   slug: 'personas',
   admin: {
     useAsTitle: 'title',
@@ -172,4 +172,3 @@ const Personas: CollectionConfig = {
   timestamps: true,
 }
 
-export default Personas

@@ -1,6 +1,6 @@
-import { CollectionConfig } from 'payload/types'
+import type { CollectionConfig } from 'payload'
 
-const Users: CollectionConfig = {
+export const Users: CollectionConfig = {
   slug: 'users',
   auth: {
     tokenExpiration: 86400, // 24 hours
@@ -52,5 +52,3 @@ const Users: CollectionConfig = {
   ],
   timestamps: true,
 }
-
-export default Users
