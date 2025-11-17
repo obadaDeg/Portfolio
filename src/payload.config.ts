@@ -18,7 +18,18 @@ export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
   admin: {
     user: Users.slug,
-    bundler: webpackBundler(),
+    bundler: webpackBundler({
+      webpack: (config) => {
+        // Ensure module.rules exists and is an array
+        if (!config.module) {
+          config.module = {}
+        }
+        if (!Array.isArray(config.module.rules)) {
+          config.module.rules = []
+        }
+        return config
+      },
+    }),
     meta: {
       titleSuffix: '- Multi-Persona Portfolio',
       favicon: '/favicon.ico',

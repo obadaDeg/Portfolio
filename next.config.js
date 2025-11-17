@@ -12,6 +12,10 @@ const nextConfig = {
   },
   // Allow Payload CMS admin to work properly
   webpack: (config, { isServer }) => {
+    // Ensure module and module.rules exist
+    config.module = config.module || {}
+    config.module.rules = config.module.rules || []
+
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
