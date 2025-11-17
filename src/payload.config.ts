@@ -1,5 +1,4 @@
 import { buildConfig } from 'payload/config'
-import { webpackBundler } from '@payloadcms/bundler-webpack'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { slateEditor } from '@payloadcms/richtext-slate'
 import path from 'path'
@@ -18,23 +17,8 @@ export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
   admin: {
     user: Users.slug,
-    bundler: webpackBundler({
-      webpack: (config) => {
-        // Ensure module.rules exists and is an array
-        if (!config.module) {
-          config.module = {}
-        }
-        if (!Array.isArray(config.module.rules)) {
-          config.module.rules = []
-        }
-        return config
-      },
-    }),
-    meta: {
-      titleSuffix: '- Multi-Persona Portfolio',
-      favicon: '/favicon.ico',
-      ogImage: '/og-image.jpg',
-    },
+    // Disable admin UI - using Payload as headless CMS with Next.js frontend
+    disable: true,
   },
   editor: slateEditor({}),
   collections: [
