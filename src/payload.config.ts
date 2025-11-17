@@ -31,11 +31,14 @@ export default buildConfig({
     Certifications,
     Media,
   ],
+  // Disable auto-generation for faster initialization in development
+  // Run `pnpm payload generate:types` manually when needed
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
+    autoGenerate: false,
   },
   graphQL: {
-    schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
+    disable: true, // Disable GraphQL for faster initialization
   },
   db: mongooseAdapter({
     url: process.env.MONGODB_URI || '',
