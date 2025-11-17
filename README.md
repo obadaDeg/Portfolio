@@ -234,7 +234,18 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📚 Documentation
 
-For detailed documentation, see the `High-Level Design Document.md` file.
+Comprehensive documentation is available in the `docs/` directory:
+
+- **[High-Level Design Document](./docs/HIGH-LEVEL-DESIGN.md)** - Complete system architecture and specifications ⭐
+- **[Documentation Index](./docs/README.md)** - Guide to all available documentation
+- **[Deployment Guide](./DEPLOYMENT.md)** - Production VPS setup and deployment
+- **[Contributing Guide](./CONTRIBUTING.md)** - Development workflow and guidelines
+
+**Quick Links:**
+- Architecture & Design: [docs/HIGH-LEVEL-DESIGN.md](./docs/HIGH-LEVEL-DESIGN.md)
+- Collections Schema: [docs/HIGH-LEVEL-DESIGN.md#51-payload-cms-collections](./docs/HIGH-LEVEL-DESIGN.md#51-payload-cms-collections)
+- Security: [docs/HIGH-LEVEL-DESIGN.md#11-security-considerations](./docs/HIGH-LEVEL-DESIGN.md#11-security-considerations)
+- Performance: [docs/HIGH-LEVEL-DESIGN.md#12-performance--scalability-strategy](./docs/HIGH-LEVEL-DESIGN.md#12-performance--scalability-strategy)
 
 ## 🐛 Issues
 
