@@ -31,9 +31,7 @@ export default buildConfig({
     Certifications,
     Media,
   ],
-  typescript: {
-    outputFile: path.resolve(__dirname, 'payload-types.ts'),
-  },
+  // Completely disable type generation - causing hangs
   graphQL: {
     disable: true, // Disable GraphQL for faster initialization
   },
