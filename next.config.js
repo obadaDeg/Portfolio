@@ -10,17 +10,26 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  experimental: {
-    optimizeCss: true,
-  },
   // Allow Payload CMS admin to work properly
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
       net: false,
       tls: false,
     }
+
+    // Externalize native modules
+    if (isServer) {
+      config.externals.push('sharp', 'mongodb')
+    }
+
+    // Don't parse .node files
+    config.module.rules.push({
+      test: /\.node$/,
+      use: 'node-loader',
+    })
+
     return config
   },
 }
