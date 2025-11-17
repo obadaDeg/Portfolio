@@ -17,18 +17,27 @@ const nextConfig = {
       fs: false,
       net: false,
       tls: false,
+      child_process: false,
+      worker_threads: false,
     }
 
-    // Externalize native modules
+    // Externalize server-only modules
     if (isServer) {
-      config.externals.push('sharp', 'mongodb')
+      config.externals.push(
+        'sharp',
+        'mongodb',
+        'pino',
+        'pino-pretty',
+        'thread-stream',
+        'sonic-boom'
+      )
     }
 
-    // Don't parse .node files
-    config.module.rules.push({
-      test: /\.node$/,
-      use: 'node-loader',
-    })
+    // Ignore problematic warnings
+    config.ignoreWarnings = [
+      { module: /node_modules\/express\/lib\/view\.js/ },
+      { module: /node_modules\/payload\/dist\/config\/load\.js/ },
+    ]
 
     return config
   },
