@@ -1,6 +1,6 @@
 import { buildConfig } from 'payload/config'
 import { webpackBundler } from '@payloadcms/bundler-webpack'
-import { postgresAdapter } from '@payloadcms/db-postgres'
+import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { slateEditor } from '@payloadcms/richtext-slate'
 import path from 'path'
 
@@ -42,10 +42,8 @@ export default buildConfig({
   graphQL: {
     schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   },
-  db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URL || '',
-    },
+  db: mongooseAdapter({
+    url: process.env.MONGODB_URI || '',
   }),
   cors: [
     process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
