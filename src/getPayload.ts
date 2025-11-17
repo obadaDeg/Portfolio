@@ -1,5 +1,6 @@
 import type { Payload } from 'payload'
 import payload from 'payload'
+import config from './payload.config'
 
 let cached = (global as any).payload
 
@@ -18,9 +19,14 @@ export const getPayloadClient = async (): Promise<Payload> => {
 
     console.log('Initializing Payload with secret length:', secret.length)
 
+    // Pass config explicitly and set local to false to avoid admin bundler initialization
     cached.promise = payload.init({
       secret,
-      local: true,
+      config,
+      local: false,
+      onInit: async (payload) => {
+        payload.logger.info(`Payload initialized`)
+      },
     })
   }
 
