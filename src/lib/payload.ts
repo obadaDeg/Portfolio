@@ -1,4 +1,4 @@
-import { getPayload as getPayloadClient } from '@payloadcms/next'
+import { getPayload as getPayloadClient } from 'payload'
 import config from '@payload-config'
 import type { Persona, Project, Skill, Experience, Content as ContentType } from '@/payload-types'
 

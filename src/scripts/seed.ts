@@ -1,4 +1,4 @@
-import { getPayload } from '@payloadcms/next'
+import { getPayload } from 'payload'
 import config from '@payload-config'
 
 async function seed() {
