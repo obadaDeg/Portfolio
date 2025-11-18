@@ -1,11 +1,12 @@
-import { getPayloadClient } from '../getPayload'
-import type { Persona, Project, Skill, Experience, Content as ContentType } from '../payload-types'
+import { getPayload as getPayloadClient } from '@payloadcms/next'
+import config from '@payload-config'
+import type { Persona, Project, Skill, Experience, Content as ContentType } from '@/payload-types'
 
 /**
- * Get Payload client instance
+ * Get Payload client instance for server-side operations
  */
 export async function getPayload() {
-  return await getPayloadClient()
+  return await getPayloadClient({ config })
 }
 
 /**
